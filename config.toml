@@ -1,0 +1,41 @@
+# The URL the site will be built for
+base_url = "https://example.com"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = false
+
+title = "Obsidian Theme"
+description = "An awesome startpage theme"
+
+[extra]
+# Put all your custom variables here
+
+OpenLinksInNewWindow = false
+[[ extra.search ]]
+browser = "duckduckgo"
+
+# list of nav tags
+[[ extra.nav ]]
+name = "neo"
+tag = "neo"
+icon = "home"
+
+[[ extra.nav ]]
+name = "favorites"
+tag = "favorite"
+icon = "star"
+
+[[ extra.nav ]]
+name = "search"
+tag = "search"
+icon = "search"
+
+[[ extra.nav ]]
+name = "shopping"
+tag = "shopping"
+icon = "shopping-basket"
+
+[[ extra.nav ]]
+name = "music"
+tag = "music"
+icon = "headphones"

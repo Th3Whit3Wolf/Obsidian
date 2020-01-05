@@ -1,0 +1,143 @@
+{% macro navbar() %}
+<div class="nav-panel">
+    <nav>
+        <ul>
+            <li class="tag is-active"><a data-tooltip="all" href="#" onclick='tagFilter()'><i class="icon fa fa-th fa-lg is-active" aria-hidden="true"></i></a></li>
+            {% if config.extra.nav %}{% for item in config.extra.nav %}
+            <li class="tag"><a data-tooltip="{{ item.name }}" href="#{{ item.tag }}" onclick='tagFilter()'><i class="icon fa fa-{{ item.icon }} fa-lg" aria-hidden="true"></i></a></li>{% endfor %}{% endif %}
+        </ul>
+    </nav>
+</div>
+{% endmacro navbar %}
+
+{% macro tiles() %}
+{% set links = load_data(path="data/links.toml", format="toml") %}
+    {% for item in links.tiles %}
+    <a class="tile tile-link" href="https://{{ item.url }}" {% if item.tags %}data-groups='{% for tags in item.tags %}{% if loop.first %}{{ tags }}{% else %},{{ tags }}{% endif %}{% endfor %}'{% endif %}{% if config.extra.OpenLinksInNewWindow == true %} target="_blank"{% endif %}> 
+        <div class="tile-box"
+            data-title='{{ item.name }}' 
+            data-url='{{ item.url }}'
+            {% if item.bg_color %}data-bg-color='{{ item.bg_color }}'{% endif %}{% if item.txt_color %}data-txt-color='{{ item.txt_color }}'{% endif %}
+            {% if item.img %}data-img='logos/{{ item.img }}'{% endif %}
+            {% if item.bg_color or item.txt_color %}style='{% if item.bg_color %}background-color:{{ item.bg_color }};{% endif %} {% if item.txt_color %}color:{{ item.txt_color }}{% endif %}'{% endif %}>
+            {% if item.img %}<img class="logo" src="logos/{{ item.img }}"></img>{% else %}{item.name}{% endif %}</div>
+        <div class="tile-title">{{ item.name }}</div>
+    </a>
+    {% endfor %}
+{% endmacro tiles %}
+
+{% macro search() %}
+{% if config.extra.search %}
+<div class="inputSearch" id="searchDiv">
+    <input type="text" placeholder="search" id="searchBar" onkeydown = "if (event.keyCode == 13) document.getElementById('submit-btn').click()" onkeyup="beAwesome()">
+    <btn type="submit" id="submit-btn"><i class="icon fa fa-search fa-lg" aria-hidden="true" id="searchIcon"></i></btn>
+</div>
+{% endif %}
+{% endmacro search %}
+
+{% macro rust_mode() %}
+<h2 class="rust" style="display: none;"><span>Are We __ Yet?</span></h2>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://areweasyncyet.rs/"><div class="rust-box" data-mode='rust'><h3>Are We Async Yet?</h3><hr /><p>Asynchronous I/O in Rust</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://areweaudioyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Audio Yet?</h3><hr /><p>Audio related development in Rust</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewechromeyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Chrome Yet?</h3><hr /><p>Parity-Chrome bugs </p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://www.arewecompressedyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Compressed Yet?</h3><hr /><p>Daala video codec quality</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewedistributedyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Distributed Yet?</h3><hr /><p>Peer-to-peer web experience</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewedocumentedyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Documented Yet?</h3><hr /><p>MDN documentation status</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://areweeveryoneyet.org/"><div class="rust-box" data-mode='rust'><h3>Are We Everyone Yet?</h3><hr /><p>Total,Employees,and Volunteer contributors per Firefox release. </p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewefastyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Fast Yet?</h3><hr /><p>Tracking performance of popular JavaScript engines</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewefunyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Fun Yet?</h3><hr /><p>Web platform game development</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewegameyet.com/"><div class="rust-box" data-mode='rust'><h3>Are we game yet?</h3><hr /><p>Almost. We have the blocks,bring your own glue.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://areweguiyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We GUI Yet?</h3><hr /><p>Rust GUI development</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://areweideyet.com/"><div class="rust-box" data-mode='rust'><h3>Are we (I)DE yet?</h3><hr /><p>An overview about the state of Rust support by text editors and their integrated brethren. </p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://www.arewelearningyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Learning Yet?</h3><hr /><p>Rust machine learning ecosystem</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewemeetingyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Meeting Yet?</h3><hr /><p>Meeting planning tool</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewemetayet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Meta Yet?</h3><hr /><p>An alternative of this List</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewereorganizedyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Reorganized Yet?</h3><hr /><p>MoCo re-org tracking</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewestableyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Stable Yet?</h3><hr /><p>Stability Dashboard</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://www.arewewebyet.org/"><div class="rust-box" data-mode='rust'><h3>Are We Web Yet?</h3><hr/><p>A simple reckoning of Rust’s readiness for Web-related things.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewexblstill.com/"><div class="rust-box" data-mode='rust'><h3>Are We XBL Still?</h3><hr /><p>Removing XBL from the Firefox codebase </p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="http://arewedatayet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Data Yet?</h3><hr /><p>Tracking our data status</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewesmoothyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Smooth Yet?</h3><hr /><p>Firefox Nightly hang telemetry visualization</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewewebrenderyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We WebRender Yet?</h3><hr /><p>WebRender rollout status</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://arewefissionyet.com/"><div class="rust-box" data-mode='rust'><h3>Are We Fission Yet?</h3><hr /><p>Fission rollout status</p></div></a>
+<h2 class="rust" style="display: none;"><span>Crate Categories</span></h2>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/data-structures"><div class="rust-box" data-mode='rust'><h3>Data Structures</h3><hr /><p>Rust implementations of particular ways of organizing data suited for specific purposes.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/encoding"><div class="rust-box" data-mode='rust'><h3>Encoding Data</h3><hr /><p>Encoding and/or decoding data from one data format to another.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/rust-patterns"><div class="rust-box" data-mode='rust'><h3>Rust Pattern</h3><hr/><p>Shared solutions for particular situations specific to programming in Rust.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/concurrency"><div class="rust-box" data-mode='rust'><h3>Concurrency</h3><hr /><p>Implementing concurrent and parallel computation.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/algorithms"><div class="rust-box" data-mode='rust'><h3>Algorithms</h3><hr /><p>Core algorithms such as hashing, sorting and searching.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/asynchronous"><div class="rust-box" data-mode='rust'><h3>Asynchronous</h3><hr /><p>Async program flow using techniques like futures, promises, waiting, or eventing.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/no-std"><div class="rust-box" data-mode='rust'><h3>No Standard Library</h3><hr/><p>Libraries that function without the Rust standard library.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/text-processing"><div class="rust-box" data-mode='rust'><h3>Text Processing</h3><hr /><p>Deal with the complexities of human language when expressed in textual form.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools"><div class="rust-box" data-mode='rust'><h3>Development Tools</h3><hr /><p>Testing, debugging, linting, performance profiling, autocompletion, formatting, and more.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/debugging"><div class="rust-box" data-mode='rust'><h3>Debugging</h3><hr /><p>Figure out what is going on with your code via logging, tracing, or assertions.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/build-utils"><div class="rust-box" data-mode='rust'><h3>Build Utils</h3><hr/><p>Utilities for build scripts and other build time steps.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/testing"><div class="rust-box" data-mode='rust'><h3>Testing</h3><hr /><p>Verify the correctness of your code.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/procedural-macro-helpers"><div class="rust-box" data-mode='rust'><h3>Procedural Macro Helpers</h3><hr /><p>Extend Rust language with procedural macros.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/ffi"><div class="rust-box" data-mode='rust'><h3>FFI</h3><hr /><p>Interface with other languages. Includes binding generators and helpful language constructs.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/cargo-plugins"><div class="rust-box" data-mode='rust'><h3>Cargo Plugins</h3><hr /><p>Subcommands that extend the capabilities of Cargo.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/development-tools/profiling"><div class="rust-box" data-mode='rust'><h3>Profile</h3><hr /><p>Figure out the performance of your code.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/os"><div class="rust-box" data-mode='rust'><h3>Operating Systems</h3><hr /><p>Bindings to operating system-specific APIs.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/os/windows-apis"><div class="rust-box" data-mode='rust'><h3>Windows APIs</h3><hr /><p>Bindings to Windows-specific APIs.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/os/unix-apis"><div class="rust-box" data-mode='rust'><h3>Unix APIs</h3><hr /><p>Bindings to Unix-specific APIs.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/os/macos-apis"><div class="rust-box" data-mode='rust'><h3>MacOS APIs</h3><hr /><p>Bindings to MacOS-specific APIs.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/network-programming"><div class="rust-box" data-mode='rust'><h3>Network Programming</h3><hr /><p>Network protocols such as FTP, HTTP, or SSH, or lower-level TCP or UDP.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/science"><div class="rust-box" data-mode='rust'><h3>Science</h3><hr /><p>Solving problems involving math, physics, and other scientific fields.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/science/math"><div class="rust-box" data-mode='rust'><h3>Math</h3><hr /><p>Solving problems involving math and logic.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/science/ml"><div class="rust-box" data-mode='rust'><h3>Machine Learning</h3><hr /><p>AI, ML, NN, etc.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/filesystem"><div class="rust-box" data-mode='rust'><h3>Filesystem</h3><hr/><p>Crates for dealing with files and filesystems.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/parser-implementations"><div class="rust-box" data-mode='rust'><h3>Parser Implementations</h3><hr /><p>Parse data formats or languages.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/parsing"><div class="rust-box" data-mode='rust'><h3>Parser Tooling</h3><hr /><p>Low-level tools and parser generators.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/web-programming"><div class="rust-box" data-mode='rust'><h3>Web Programming</h3><hr/><p>Create applications for the Web.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/web-programming/http-client"><div class="rust-box" data-mode='rust'><h3>HTTP Client</h3><hr /><p>Make HTTP network requests.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/web-programming/http-server"><div class="rust-box" data-mode='rust'><h3>HTTP Server</h3><hr /><p>Serve data over HTTP.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/web-programming/websocket"><div class="rust-box" data-mode='rust'><h3>WebSocket</h3><hr /><p>Communicate over the WebSocket protocol.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/cryptography"><div class="rust-box" data-mode='rust'><h3>Cryptography</h3><hr/><p>Algorithms intended for securing data.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/wasm"><div class="rust-box" data-mode='rust'><h3>WebAssembly</h3><hr /><p>Targeting or manipulating WebAssembly.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/memory-management"><div class="rust-box" data-mode='rust'><h3>Memory Management</h3><hr /><p>Allocation, memory mapping, garbage collection, reference counting, or interfaces to foreign memory managers.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/command-line-interface"><div class="rust-box" data-mode='rust'><h3>Command Line Interface</h3><hr /><p>Argument parsers, line-editing, or output coloring and formatting.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/command-line-utilities"><div class="rust-box" data-mode='rust'><h3>Command Line Utilities</h3><hr /><p>Applications to run at the command line.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/compression"><div class="rust-box" data-mode='rust'><h3>Compression</h3><hr/><p>Algorithms for making data smaller.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/date-and-time"><div class="rust-box" data-mode='rust'><h3>Date & Time</h3><hr /><p>Dealing with the fourth dimension.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/gui"><div class="rust-box" data-mode='rust'><h3>GUI</h3><hr /><p>Create a graphical user interface.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/database"><div class="rust-box" data-mode='rust'><h3>Database Interfaces</h3><hr /><p>Interface with database management systems.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/email"><div class="rust-box" data-mode='rust'><h3>Email</h3><hr /><p>Sending, receiving, formatting, and parsing email.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/multimedia"><div class="rust-box" data-mode='rust'><h3>Multimedia</h3><hr /><p>Audio, video, and image processing or rendering engines.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/multimedia/images"><div class="rust-box" data-mode='rust'><h3>Images</h3><hr /><p>Process or build images.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/multimedia/audio"><div class="rust-box" data-mode='rust'><h3>Audio</h3><hr /><p>Record, output, or process audio.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/multimedia/video"><div class="rust-box" data-mode='rust'><h3>Video</h3><hr /><p>Record, output, or process video.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/multimedia/encoding"><div class="rust-box" data-mode='rust'><h3>Encoding Media</h3><hr /><p>Encode or decode binary data in multimedia formats.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/rendering"><div class="rust-box" data-mode='rust'><h3>Rendering</h3><hr /><p>Real-time or offline rendering of 2D or 3D graphics, usually on a GPU.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/rendering/graphics-api"><div class="rust-box" data-mode='rust'><h3>Graphics APIs</h3><hr /><p>Direct access to the hardware's or the operating system's rendering capabilities.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/rendering/engine"><div class="rust-box" data-mode='rust'><h3>Rendering Engine</h3><hr/><p>High-level solutions for rendering on the screen.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/rendering/data-formats"><div class="rust-box" data-mode='rust'><h3>GFX Data Formats</h3><hr/><p>Loading and parsing of data for 2D/3D rendering, like 3D models or animations.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/database-implementations"><div class="rust-box" data-mode='rust'><h3>Database Implementations</h3><hr /><p>Database management systems implemented in Rust.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/value-formatting"><div class="rust-box" data-mode='rust'><h3>Value Formatting</h3><hr/><p>Format values for display to a user, potentially adapting the display to various languages and regions.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/template-engine"><div class="rust-box" data-mode='rust'><h3>Template Engine</h3><hr /><p>Combine templates with data to produce documents, usually with an emphasis on processing text.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/hardware-support"><div class="rust-box" data-mode='rust'><h3>Hardware Support</h3><hr /><p>Interface with specific CPU or other hardware features.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/authentication"><div class="rust-box" data-mode='rust'><h3>Authentication</h3><hr /><p>Help with the process of confirming identities.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/embedded"><div class="rust-box" data-mode='rust'><h3>Embedded Development</h3><hr /><p>For embedded devices or devices without an operating system.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/cryptography/cryptocurrencies"><div class="rust-box" data-mode='rust'><h3>Cryptocurrencies</h3><hr /><p>Coins, blockchains, and wallets.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/caching"><div class="rust-box" data-mode='rust'><h3>Caching</h3><hr /><p>Store the results of previous computations.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/visualization"><div class="rust-box" data-mode='rust'><h3>Visualization</h3><hr /><p>Ways to view data, such as plotting or graphing.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/config"><div class="rust-box" data-mode='rust'><h3>Configuration</h3><hr/><p>Configuration management for applications.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/internationalization"><div class="rust-box" data-mode='rust'><h3>Internationalization(i8n)</h3><hr/><p>and localization(l10n).Develop software for various languages and regions.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/game-engines"><div class="rust-box" data-mode='rust'><h3>Game Development</h3><hr/><p>Crates for creating games.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/games"><div class="rust-box" data-mode='rust'><h3>Games</h3><hr /><p>Fun and entertainment. Games implemented in the Rust programming language.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/emulators"><div class="rust-box" data-mode='rust'><h3>Emulators</h3><hr /><p>Run software or games not available natively on the host computer.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/simulation"><div class="rust-box" data-mode='rust'><h3>Simulation</h3><hr/><p>Model or construct models for some activity, e.g.to simulate a networking protocol.</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://lib.rs/text-editors"><div class="rust-box" data-mode='rust'><h3>Text Editors</h3><hr/><p>Applications for editing text.</p></div></a>
+<h2 class="rust" style="display: none;"><span>Other Resources</span></h2>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://cheats.rs/"><div class="rust-box" data-mode='rust'><h3>Rust Language Cheat Sheet</h3><hr /><p>Includes Language Constructs,Data & Types,& Guides</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://rust-lang-nursery.github.io/rust-cookbook/"><div class="rust-box" data-mode='rust'><h3>Rust Programming Language Cookbook</h3><hr /><p>Collection of simple examples that demonstrate</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/stable/book/" data-mode='rust'><div class="rust-box"><h3>The Rust Programming Language Book</h3><hr /><p>Online version of the official book</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/std/index.html" data-mode='rust'><div class="rust-box"><h3>The Standard Library</h3><hr /><p>Comprehensive guide to the Rust standard library APIs</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/edition-guide/index.html" data-mode='rust'><div class="rust-box"><h3>Edition Guide</h3><hr /><p>Guide to the Rust editions</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/cargo/index.html" data-mode='rust'><div class="rust-box"><h3>Cargo Book</h3><hr /><p>A book on Rust’s package manager and build system</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/rustdoc/index.html" data-mode='rust'><div class="rust-box"><h3>RustDoc Book</h3><hr/><p>Learn how to make awesome documentation for your crate</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/rustc/index.html" data-mode='rust'><div class="rust-box"><h3>Rustc Book</h3><hr /><p>Familiarize yourself with the knobs available in the Rust compiler</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://doc.rust-lang.org/error-index.html" data-mode='rust'><div class="rust-box"><h3>Compiler Error Index</h3><hr /><p>In-depth explanations of the errors you may see from the Rust compiler</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://rust-lang-nursery.github.io/cli-wg/" data-mode='rust'><div class="rust-box"><h3>Command Line Book</h3><hr /><p>Learn how to build effective command line applications in Rust</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://rustwasm.github.io/docs/book/" data-mode='rust'><div class="rust-box"><h3>WebAssembly Book</h3><hr /><p>Use Rust to build browser-native libraries through WebAssembly</p></div></a>
+<a class="rust rust-tile tile-link" style="display: none;" href="https://rust-embedded.github.io/book/" data-mode='rust'><div class="rust-box"><h3>Embedded Book</h3><hr/><p>Become proficient with Rust for Microcontrollers and other embedded systems</p></div></a>
+{% endmacro rust_mode %}

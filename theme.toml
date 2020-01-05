@@ -1,0 +1,42 @@
+name = "obsidian"
+description = "An awesome startpage theme"
+license = "MIT"
+homepage = "https://github.com/getzola/hyde"
+min_version = "0.5.0"
+
+[extra]
+# Put all your custom variables here
+
+OpenLinksInNewWindow = false
+[[ extra.search ]]
+browser = "duckduckgo"
+
+# list of nav tags
+[[ extra.nav ]]
+name = "neo"
+tag = "neo"
+icon = "home"
+
+[[ extra.nav ]]
+name = "favorites"
+tag = "favorite"
+icon = "star"
+
+[[ extra.nav ]]
+name = "search"
+tag = "search"
+icon = "search"
+
+[[ extra.nav ]]
+name = "shopping"
+tag = "shopping"
+icon = "shopping-basket"
+
+[[ extra.nav ]]
+name = "music"
+tag = "music"
+icon = "headphones"
+
+[author]
+name = "David Karrick"
+homepage = "https://github.com/Th3Whit3Wolf"

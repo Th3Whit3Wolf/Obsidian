@@ -1,0 +1,260 @@
+[[tiles]]
+name = "amazon"
+url = "amazon.com"
+img = "amazon.svg"
+bg_color = "#000000"
+tags = [
+  "favorite",
+  "shopping"
+]
+
+[[tiles]]
+name = "bing"
+url = "bing.com"
+img = "bing.svg"
+bg_color = "#0c8484"
+tags = [
+  "search"
+]
+
+[[tiles]]
+name = "digital ocean"
+url = "cloud.digitalocean.com/projects/74669a99-7f97-4ca6-96f4-0ba1e8492a78/resources?i=415364"
+img = "DO.svg"
+bg_color = "#010e28"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "documize"
+url = "docs.neo-os.com"
+img = "documize.svg"
+bg_color = "#4b137b"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "drone"
+url = "drone.neo-os.com"
+img = "drone.svg"
+bg_color = "#1d3557"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "ebay"
+url = "ebay.com"
+img = "ebay.svg"
+bg_color = "#ffffff"
+txt_color = "#000000"
+tags = [
+  "shopping"
+]
+
+[[tiles]]
+name = "fathom"
+url = "neoos.usesfathom.com"
+img = "fathom.svg"
+bg_color = "#fff"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "forum"
+url = "forum.neo-os.com/admin"
+img = "flarum.svg"
+bg_color = "#fff"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "gitea"
+url = "code.neo-os.com"
+img = "gitea.svg"
+bg_color = "#383c4a"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "github"
+url = "github.com"
+img = "github.svg"
+bg_color = "#24292e"
+tags = [
+  "favorite"
+]
+
+[[tiles]]
+name = "google"
+url = "google.com"
+img = "google.svg"
+bg_color = "#ffffff"
+tags = [
+  "favorite",
+  "search"
+]
+
+[[tiles]]
+name = "google music"
+url = "play.google.com/music/listen"
+img = "google-music.png"
+bg_color = "#ffffff"
+txt_color = "#ff5722"
+tags = [
+  "music"
+]
+
+[[tiles]]
+name = "hugo"
+url = "http://localhost:1313"
+img = "hugo.svg"
+bg_color = "#0a1922"
+
+[[tiles]]
+name = "imgur"
+url = "imgur.com"
+img = "imgur.svg"
+bg_color = "#ffffff"
+txt_color = "#85bf25"
+
+[[tiles]]
+name = "pandora"
+url = "pandora.com"
+img = "pandora.svg"
+bg_color = "#005483"
+txt_color = "#ffffff"
+tags = [
+  "music"
+]
+
+[[tiles]]
+name = "phoronix"
+url = "phoronix.com"
+img = "phoronix-title.svg"
+bg_color = "#000000"
+
+[[tiles]]
+name = "mattermost"
+url = "mm.neo-os.com"
+img = "mattermost.svg"
+bg_color = "#152235"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "netflix"
+url = "netflix.com"
+img = "netflix.svg"
+bg_color = "#221f1f"
+txt_color = "#e50914"
+tags = [
+  "video"
+]
+
+[[tiles]]
+name = "reddit"
+url = "reddit.com"
+img = "reddit.svg"
+bg_color = "#ff4500"
+
+[[tiles]]
+name = "soundcloud"
+url = "soundcloud.com"
+img = "soundcloud.svg"
+bg_color = "#ff5500"
+tags = [
+  "music"
+]
+
+[[tiles]]
+name = "spotify"
+url = "web.spotify.com"
+img = "spotify.svg"
+bg_color = "#191414"
+txt_color = "#1db954"
+tags = [
+  "favorite",
+  "music"
+]
+
+[[tiles]]
+name = "steam"
+url = "store.steampowered.com/"
+img = "steam.svg"
+bg_color = "#171a21"
+tags = [
+  "favorite"
+]
+
+[[tiles]]
+name = "taiga"
+url = "tree.taiga.io/project/whitewolf-neo-neo-os/timeline"
+img = "taiga.svg"
+bg_color = "#1e2625"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "traefik"
+url = "traefik.neo-os.com"
+img = "traefik.svg"
+bg_color = "#11287b"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "twitch"
+url = "twitch.com"
+img = "twitch.svg"
+bg_color = "#6441a5"
+tags = [
+  "video"
+]
+
+[[tiles]]
+name = "twitter"
+url = "twitter.com"
+img = "twitter.svg"
+bg_color = "#1da1f2"
+txt_color = "#f5f8fa"
+
+[[tiles]]
+name = "wccftech"
+url = "wccftech.com"
+img = "wccftech.svg"
+bg_color = "#222222"
+
+[[tiles]]
+name = "wiki"
+url = "wiki.neo-os.com"
+img = "wikijs.svg"
+bg_color = "#000"
+tags = [
+  "neo"
+]
+
+[[tiles]]
+name = "wikipedia"
+url = "wikipedia.org"
+img = "wikipedia.svg"
+bg_color = "#ffffff"
+txt_color = "#000000"
+
+[[tiles]]
+name = "youtube"
+url = "youtube.com"
+img = "youtube.svg"
+bg_color = "#272727"
+txt_color = "#cd201f"
+tags = [
+  "video"
+]
